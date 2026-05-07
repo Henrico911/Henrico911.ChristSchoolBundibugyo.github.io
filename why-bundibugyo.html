@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Bundibugyo — Christ School Bundibugyo</title>
+  <meta name="description" content="Discover why Bundibugyo needs Christ School — poverty, orphans, girls' education, and the transformative power of gospel-centred learning in western Uganda." />
+  <link rel="icon" type="image/png" href="images/header-logo-150x150.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ---- Page-specific styles ---- */
+    .why-intro {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .why-intro-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .why-intro-img img {
+      width: 100%; height: 480px;
+      object-fit: cover;
+    }
+
+    /* Challenge cards */
+    .challenges-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .challenge-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--gold);
+      transition: var(--transition);
+    }
+    .challenge-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    .challenge-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .challenge-card h3 { margin-bottom: 0.75rem; font-size: 1.1rem; }
+    .challenge-card p  { font-size: 0.9rem; color: var(--text-mid); line-height: 1.75; }
+
+    /* Girls section */
+    .girls-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .girls-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .girls-img img { width: 100%; height: 420px; object-fit: cover; }
+
+    /* OVC section */
+    .ovc-wrap {
+      background: var(--green-deep);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .ovc-wrap h2 { color: var(--gold); margin-bottom: 1rem; }
+    .ovc-wrap p  { color: rgba(255,255,255,0.8); font-size: 0.93rem; line-height: 1.8; margin-bottom: 1rem; }
+    .ovc-stat-row {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .ovc-stat strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .ovc-stat span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .ovc-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .ovc-img img { width: 100%; height: 320px; object-fit: cover; }
+
+    /* Get involved */
+    .involved-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .involved-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: var(--transition);
+    }
+    .involved-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .involved-card .icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--cream-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1.25rem;
+      transition: var(--transition);
+    }
+    .involved-card:hover .icon { background: var(--green-mid); }
+    .involved-card h3 { margin-bottom: 0.6rem; font-size: 1.05rem; }
+    .involved-card p  { font-size: 0.87rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 1.5rem; }
+
+    /* Pull quote */
+    .pull-quote {
+      background: var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 3rem 4rem;
+      text-align: center;
+      margin: 4rem 0;
+    }
+    .pull-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--green-deep);
+      line-height: 1.5;
+      max-width: 750px;
+      margin: 0 auto 1rem;
+    }
+    .pull-quote cite {
+      font-size: 0.85rem;
+      font-style: normal;
+      color: rgba(26,58,42,0.65);
+      font-weight: 600;
+    }
+
+    @media (max-width: 1024px) {
+      .why-intro        { grid-template-columns: 1fr; gap: 2.5rem; }
+      .girls-section    { grid-template-columns: 1fr; gap: 2.5rem; }
+      .ovc-wrap         { grid-template-columns: 1fr; }
+      .challenges-grid  { grid-template-columns: 1fr 1fr; }
+      .involved-grid    { grid-template-columns: 1fr 1fr; }
+      .pull-quote       { padding: 2.5rem; }
+      .pull-quote blockquote { font-size: 1.3rem; }
+    }
+    @media (max-width: 600px) {
+      .challenges-grid { grid-template-columns: 1fr; }
+      .involved-grid   { grid-template-columns: 1fr; }
+      .ovc-stat-row    { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar scrolled">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <img src="images/header-logo-150x150.png" alt="CSB Logo" />
+      </div>
+      <div class="nav-logo-text"><span>Christ School</span><span>Bundibugyo, Uganda</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Programmes</a></li>
+      <li><a href="portfolio.html">Stories</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="why-bundibugyo.html" class="active" style="color:var(--gold-light);">Why Bundibugyo</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>›</span><span class="current">Why Bundibugyo</span>
+    </div>
+    <h1>Why Bundibugyo?</h1>
+    <p>Bundibugyo is one of Uganda's most isolated and underserved districts. Understanding the need helps explain the urgency and beauty of what CSB exists to do.</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="container">
+    <div class="why-intro">
+      <div class="animate-on-scroll">
+        <span class="section-label">The Context</span>
+        <h2>One of Uganda's Most Needy Places</h2>
+        <p style="color:var(--text-mid); margin-bottom:1rem;">
+          Uganda is one of the poorest countries in the world — and within Uganda, <strong>Bundibugyo District is one of the least economically developed districts</strong>. Tucked between the Rwenzori Mountains and the Democratic Republic of Congo, Bundibugyo's geography isolates it from the rest of the country, limiting access to markets, infrastructure, healthcare, and education.
+        </p>
+        <p style="color:var(--text-mid); margin-bottom:1rem;">
+          Most families in Bundibugyo live on only a few dollars a day, caring for multiple children without consistent access to clean running water or reliable electricity. Livelihoods depend heavily on subsistence farming and cocoa harvests — meaning a single landslide or a poor harvest season can push a family from poverty into crisis overnight.
+        </p>
+        <p style="color:var(--text-mid); margin-bottom:2rem;">
+          In this context, access to quality secondary education is not a luxury — it is a lifeline. And that is exactly what Christ School Bundibugyo exists to provide.
+        </p>
+        <a href="contact.html" class="btn btn-green">Support the Mission</a>
+      </div>
+      <div class="why-intro-img animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80"
+             alt="Bundibugyo landscape and community" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY CHALLENGES -->
+<section class="section" style="background:var(--cream-dark); padding-top:0;">
+  <div class="container">
+    <div style="text-align:center; max-width:620px; margin:0 auto 3rem;" class="animate-on-scroll">
+      <span class="section-label">The Challenges</span>
+      <h2>What Bundibugyo Faces Every Day</h2>
+      <p style="color:var(--text-mid);">These are not abstract statistics — they are the daily realities that shape the lives of CSB's students and their families.</p>
+    </div>
+    <div class="challenges-grid">
+
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">💸</div>
+        <h3>Extreme Poverty</h3>
+        <p>Most families survive on just a few dollars per day. There is no free secondary education in Uganda, meaning that without financial support, the majority of children in Bundibugyo would never set foot in a secondary school. CSB's partner organisation, Serge, subsidises 50% of tuition and boarding for all students so that finances are not a barrier to education.</p>
+      </div>
+
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">🏥</div>
+        <h3>Health &amp; Disease Burden</h3>
+        <p>HIV/AIDS, malaria, and other preventable diseases take a severe toll on the Bundibugyo community. Health infrastructure is extremely limited, with few qualified medical professionals serving the district's large rural population. This is precisely why CSB's A-Level programme focuses on science and medicine — to raise up the next generation of healthcare workers for the region.</p>
+      </div>
+
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">⚠️</div>
+        <h3>History of Conflict</h3>
+        <p>Bundibugyo has experienced rebel warfare in the past, leaving a generation of children traumatised and parentless. The instability has contributed to a culture of fear and limited opportunity. CSB provides a safe, structured, and nurturing environment where young people can heal, grow, and discover their potential away from the instability of the outside world.</p>
+      </div>
+
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">📉</div>
+        <h3>Deficit of Professionals</h3>
+        <p>Bundibugyo suffers from a critical shortage of doctors, engineers, and other skilled professionals. Young people who do manage to receive a quality education often leave the district for opportunities in Kampala or abroad. CSB's vision is to produce graduates who are equipped and motivated to return and serve their own community — transforming it from within.</p>
+      </div>
+
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">🏔️</div>
+        <h3>Geographic Isolation</h3>
+        <p>Bundibugyo's location — bordered by mountains and the DRC — means roads are difficult, communications are limited, and goods and services are expensive and hard to access. This isolation reinforces poverty and makes outside investment rare. CSB is one of the few organisations operating a long-term, sustainable educational institution in the district.</p>
+      </div>
+
+      <div class="challenge-card animate-on-scroll">
+        <div class="challenge-icon">🌱</div>
+        <h3>Agricultural Vulnerability</h3>
+        <p>When the cocoa harvest fails or a landslide wipes out a family's crops, the consequences are devastating. Food insecurity is a constant threat. CSB's full boarding model ensures that every enrolled student receives three nutritious meals a day — for many students, this is the most reliable food security they experience during the school term.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="container animate-on-scroll">
+  <div class="pull-quote">
+    <blockquote>
+      "In Uganda, Bundibugyo is one of the poorest of the poor areas. We are seen as backwards in many ways. But our hope is that these young men and women will walk into every room with heads held high — knowing they are valued, esteemed, and magnificent because of their Creator."
+    </blockquote>
+    <cite>— CSB Staff Member</cite>
+  </div>
+</div>
+
+<!-- GIRLS' EDUCATION -->
+<section class="section">
+  <div class="container">
+    <div class="girls-section">
+      <div class="girls-img animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+             alt="Girls studying at CSB" loading="lazy" />
+      </div>
+      <div class="animate-on-scroll">
+        <span class="section-label">Girls' Education</span>
+        <h2>Breaking the Cycle for Young Women</h2>
+        <p style="color:var(--text-mid); margin-bottom:1rem;">
+          In Bundibugyo, girls face unique and compounding barriers to education. They are often kept at home to care for siblings, cook, and clean — responsibilities that fall on them far earlier than on boys. Even when a girl completes primary school, attending secondary school is a distant hope: families that can only afford one child's education almost always prioritise their son.
+        </p>
+        <p style="color:var(--text-mid); margin-bottom:1rem;">
+          This exclusion has devastating consequences: limited future opportunities, early and unwanted marriage, teenage pregnancy, and a cycle of poverty that passes from mother to daughter to granddaughter.
+        </p>
+        <p style="color:var(--text-mid); margin-bottom:1.5rem;">
+          <strong>Christ School Bundibugyo actively fights this cycle.</strong> CSB admits and educates as many girls as boys — with equal opportunity, equal expectations, and equal investment. The school provides safe boarding accommodation, a campus environment free from sexual harassment, and leadership and extracurricular opportunities designed to build confidence and agency in every young woman who walks through its gates.
+        </p>
+        <div style="display:flex; gap:2rem; flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <div style="font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:900; color:var(--green-mid); line-height:1;">50/50</div>
+            <div style="font-size:0.82rem; color:var(--text-light); margin-top:0.25rem;">Girls to boys enrolment ratio</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:900; color:var(--green-mid); line-height:1;">175+</div>
+            <div style="font-size:0.82rem; color:var(--text-light); margin-top:0.25rem;">Female students enrolled this year</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVC PROGRAMME -->
+<section class="section" style="background:var(--cream-dark);">
+  <div class="container">
+    <div class="ovc-wrap animate-on-scroll">
+      <div>
+        <span class="section-label" style="color:var(--gold-light);">Orphan &amp; Vulnerable Children</span>
+        <h2>No Orphan Should Be Denied an Education</h2>
+        <p>AIDS, malaria, rebel warfare, and other causes have left many children in Bundibugyo without one or both parents. These orphans face the highest risks of sexual exploitation, human trafficking, labour abuse, and limited access to healthcare — and in Uganda, without financial support, secondary education is simply out of reach.</p>
+        <p>The <strong>CSB Orphan and Vulnerable Children (OVC) Sponsorship Programme</strong> was created to give these children an education paired with the Gospel — showing them that they are beloved, valuable, and worth investing in, even when the world tells them otherwise.</p>
+        <p>Sponsors partner with CSB for 4–6 years, providing gospel-centred education and three meals a day to a child who would otherwise have no access to schooling. Many OVC graduates have gone on to assume leadership roles in their communities — with hearts and minds bent on service.</p>
+        <div class="ovc-stat-row">
+          <div class="ovc-stat">
+            <strong>46</strong>
+            <span>Students currently sponsored through OVC</span>
+          </div>
+          <div class="ovc-stat">
+            <strong>$1</strong>
+            <span>Per day sponsors one student for one year</span>
+          </div>
+        </div>
+      </div>
+      <div class="ovc-img">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80"
+             alt="OVC students at CSB" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center; max-width:600px; margin:0 auto 3rem;" class="animate-on-scroll">
+      <span class="section-label">Take Action</span>
+      <h2>How You Can Help</h2>
+      <p style="color:var(--text-mid);">There are many ways to invest in the students and community of Bundibugyo — from giving financially, to volunteering your time and skills.</p>
+    </div>
+    <div class="involved-grid">
+
+      <div class="involved-card animate-on-scroll">
+        <div class="icon">💚</div>
+        <h3>Sponsor a Student</h3>
+        <p>For just $1 a day, you can sponsor one student's full year of tuition and boarding through the OVC Sponsorship Programme. Your investment transforms a life.</p>
+        <a href="contact.html" class="btn btn-green" style="font-size:0.85rem; padding:0.7rem 1.5rem;">Learn More</a>
+      </div>
+
+      <div class="involved-card animate-on-scroll">
+        <div class="icon">✈️</div>
+        <h3>Intern at CSB</h3>
+        <p>Spend 6–8 weeks in Bundibugyo assisting special CSB development projects — communications, football programmes, student discipleship, Field Day, and the OVC programme. Apply through Serge.</p>
+        <a href="contact.html" class="btn btn-green" style="font-size:0.85rem; padding:0.7rem 1.5rem;">Enquire</a>
+      </div>
+
+      <div class="involved-card animate-on-scroll">
+        <div class="icon">📚</div>
+        <h3>Apprentice for 18 Months</h3>
+        <p>Are you passionate about science and math education? Join as an apprentice teacher for 18 months, focusing on teacher assistance and development. Science and math backgrounds especially needed.</p>
+        <a href="contact.html" class="btn btn-green" style="font-size:0.85rem; padding:0.7rem 1.5rem;">Apply via Serge</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container animate-on-scroll">
+    <h2>The Need is Real. The Hope is Real.</h2>
+    <p>Every student at CSB is a story of what is possible when a community decides that no child should be left behind.</p>
+    <a href="contact.html" class="btn btn-green">Get In Touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo"><div class="nav-logo-icon">CSB</div><div class="nav-logo-text"><span>Christ School Bundibugyo</span></div></div>
+        <p>Producing servant leaders for the good of Bundibugyo and God's glory.</p>
+        <div class="social-row">
+          <a href="#" class="social-btn">𝗳</a><a href="#" class="social-btn">𝕏</a><a href="#" class="social-btn">💬</a><a href="#" class="social-btn">▶</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Programmes</a></li>
+        <li><a href="portfolio.html">Success Stories</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="why-bundibugyo.html">Why Bundibugyo</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Programmes</h4><ul>
+        <li><a href="services.html">O-Level (S1–S4)</a></li>
+        <li><a href="services.html">A-Level (S5–S6)</a></li>
+        <li><a href="services.html">Boarding Life</a></li>
+        <li><a href="services.html">Chapel &amp; Worship</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="#">📍 Bundibugyo District, Uganda</a></li>
+        <li><a href="tel:+256700000000">📞 +256 700 000 000</a></li>
+        <li><a href="mailto:info@christschoolbundi.org">✉️ info@christschoolbundi.org</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Christ School Bundibugyo. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
